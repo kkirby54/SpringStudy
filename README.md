@@ -1,3 +1,3 @@
 # SpringStudy
 
-https://inf.run/BzNS로 시작하는 Spring 공부
+https://inf.run/BzNS 로 시작하는 Spring 공부
