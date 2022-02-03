@@ -38,6 +38,7 @@ public class SingletonWithPrototypeTest1 {
 
         int count2 = clientBean2.logic();
         assertThat(count2).isEqualTo(1);
+
     }
 
     @Scope("singleton")
