@@ -14,8 +14,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
-    //@Bean -> memberService -> new MemoryMemberRepository()
-    //@Bean -> orderService -> new MemoryMemberRepository()
+    // @Bean -> memberService -> new MemoryMemberRepository()
+    // @Bean -> orderService -> new MemoryMemberRepository()
     // 띠용. 싱글톤인데 new를 두번하게 된다.
     // 근데 Configuration이 이걸 막아줌.
 
