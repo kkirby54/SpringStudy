@@ -2,10 +2,6 @@ package hello.servlet.web.frontcontroller.v3;
 
 import hello.servlet.web.frontcontroller.ModelView;
 import hello.servlet.web.frontcontroller.MyView;
-import hello.servlet.web.frontcontroller.v2.ControllerV2;
-import hello.servlet.web.frontcontroller.v2.controller.MemberFormControllerV2;
-import hello.servlet.web.frontcontroller.v2.controller.MemberListControllerV2;
-import hello.servlet.web.frontcontroller.v2.controller.MemberSaveControllerV2;
 import hello.servlet.web.frontcontroller.v3.controller.MemberFormControllerV3;
 import hello.servlet.web.frontcontroller.v3.controller.MemberListControllerV3;
 import hello.servlet.web.frontcontroller.v3.controller.MemberSaveControllerV3;
@@ -38,14 +34,14 @@ public class FrontControllerServletV3 extends HttpServlet {
 
         // ControllerV3은 인터페이스라서.
         // MemberListController든, save든, form이든 다 받을 수 있다.
-
         ControllerV3 controller = controllerMap.get(requestURI);
         if (controller == null){
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
 
-        // paramMap을 넘겨줘야 함.
+        // request로 들어온 Model(username, age)을 paramMap에 복사.
+        // HTTP서블릿에 종속되지 않기 때문에 직접 Model을 만들어서 넘겨줘야 함.
         Map<String, String> paramMap = createParamMap(request);
         ModelView mv = controller.process(paramMap);
 

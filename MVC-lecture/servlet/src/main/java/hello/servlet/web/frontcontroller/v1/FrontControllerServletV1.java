@@ -29,7 +29,6 @@ public class FrontControllerServletV1 extends HttpServlet {
         System.out.println("FrontControllerServletV1.service");
 
         String requestURI = request.getRequestURI();
-
         // ControllerV1은 인터페이스라서.
         // MemberListController든, save든, form이든 다 받을 수 있다.
 
