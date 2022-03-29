@@ -40,6 +40,7 @@ public abstract class Item {
 
     /**
      * stock 감소
+     * 이에 대한 단위 테스트가 중요하다.
      */
     public void removeStock(int quantity){
         int restStock = this.stockQuantity - quantity;
