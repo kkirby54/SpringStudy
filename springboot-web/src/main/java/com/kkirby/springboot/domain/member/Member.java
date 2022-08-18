@@ -1,5 +1,6 @@
-package com.kkirby.springboot.domain.user;
+package com.kkirby.springboot.domain.member;
 
+import com.kkirby.springboot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class User {
+public class Member extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,14 +30,14 @@ public class User {
     private Role role;
 
     @Builder
-    public User(String name, String email, String picture, Role role) {
+    public Member(String name, String email, String picture, Role role) {
         this.name = name;
         this.email = email;
         this.picture = picture;
         this.role = role;
     }
 
-    public User update(String name, String picture){
+    public Member update(String name, String picture){
         this.name = name;
         this.picture = picture;
 

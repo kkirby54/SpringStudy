@@ -1,4 +1,4 @@
-package com.kkirby.springboot.domain.user;
+package com.kkirby.springboot.domain.member;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum Role {
     GUEST("ROLE_GUEST", "손님"),
-    USER("ROLE_USER", "일반 사용자");
+    MEMBER("ROLE_MEMBER", "일반 사용자");
 
     private final String key;
     private final String title;
