@@ -19,6 +19,8 @@ dependencies {
     implementation('org.springframework.session:spring-session-jdbc')
     implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 
+    implementation 'org.mariadb.jdbc:mariadb-java-client'
+
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation("org.springframework.security:spring-security-test")
