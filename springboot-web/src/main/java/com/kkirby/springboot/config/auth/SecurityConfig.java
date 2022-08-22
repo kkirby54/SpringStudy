@@ -2,17 +2,21 @@ package com.kkirby.springboot.config.auth;
 
 import com.kkirby.springboot.domain.member.Role;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.SecurityFilterChain;
 
 @RequiredArgsConstructor
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+@Configuration
+public class SecurityConfig {
     private final CustomOAuth2UserService customOAuth2Userservice;
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
                 .headers().frameOptions().disable()
@@ -29,5 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .oauth2Login()
                         .userInfoEndpoint()
                             .userService(customOAuth2Userservice);
+
+        return http.build();
     }
 }
